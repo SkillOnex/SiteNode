@@ -1,11 +1,12 @@
 @font-face {
   font-family: 'SiteFont';
   src: url('./Fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
 }
 *{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'SiteFont', sans-serif;
+  
 }
 
 @media (min-width: 991.98px) {
@@ -50,3 +51,7 @@
 .conteudo{
   margin-top: 58px;
 }
+.imgopc{
+  opacity: 10%;
+}
+
