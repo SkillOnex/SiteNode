@@ -51,15 +51,7 @@ app.use(middlewareGlobal); // Middlwares
 app.set("views", path.resolve(__dirname, "src", "views"));
 app.set("view engine", "ejs");
 
-app.use((req, res, next) => {
-  const nonce = res.locals.nonce;
-  console.log(nonce);
-  res.setHeader(
-    "Content-Security-Policy",
-   `default-src 'self'; font-src 'self' data:; script-src 'self' 'nonce-${nonce}'; style-src 'self' http://localhost:3000;`
-  );
-  next();
-});
+
 
 app.use(routes); //pede para o app usar o routes ^^
 

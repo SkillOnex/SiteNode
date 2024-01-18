@@ -5,7 +5,7 @@ const route = express.Router();
 const homeController = require('./src/controllers/homeController'); // recupera as paginas na pasta homeController
 const loginController = require('./src/controllers/loginController'); // recupera as paginas na pasta loginController
 const registrarController = require('./src/controllers/registrarController'); // recupera as paginas na pasta loginController
-const conteudosController = require('./src/controllers/teste'); // recupera as paginas na pasta loginController
+const conteudosController = require('./src/controllers/pagsconteudos'); // recupera as paginas na pasta loginController
 
 
 //Rotas Home

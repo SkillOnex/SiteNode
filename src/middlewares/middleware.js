@@ -9,6 +9,7 @@ exports.middlewareGlobal = (req, res, next) => {
     res.locals.success = req.flash('success'); // Adiciona a variável 'success' da flash message aos locais (locals) da resposta.
     res.locals.user = req.session.user;
     res.locals.nonce = nonce;
+    
     next(); // Chama a próxima função middleware na pilha.
 }
 
