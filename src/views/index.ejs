@@ -1,0 +1,66 @@
+<%- include('includes/head'); %>
+  <%- include('includes/nav'); %>
+  
+
+    <!-- <nav id="navbarSupportedContent" class="collapse navbar-collapse d-lg-block sidebar collapse bg-white"></nav> -->
+    
+    <!--Main Navigation-->
+    <header class="">
+      <!-- Sidebar -->
+      <nav id="navbarSupportedContent" class="collapse d-lg-block sidebar collapse bg-white ">
+        <div class="position-sticky my-5">
+          <div class="list-group list-group-flush mx-3 mt-4">
+            <a href="#" id="dashboardLink" class="list-group-item list-group-item-action py-2 ripple"
+              aria-current="true" nonce="<%= nonce %>">
+              <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple ">
+              <i class="fas fa-chart-area fa-fw me-3"></i><span>Inciar Chamado</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                class="fas fa-lock fa-fw me-3"></i><span>Meus Chamados</span></a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
+                class="fas fa-chart-line fa-fw me-3"></i><span>Entrar com setor</span></a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+              <i class="fas fa-chart-pie fa-fw me-3"></i><span>Graficos</span>
+            </a>
+
+          </div>
+        </div>
+      </nav>
+      <!-- Sidebar -->
+
+
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout -->
+    <main class="conteudo">
+      <div class="container pt-5 " id="conteudo">
+        a
+
+      </div>
+      
+    </main>
+    <!--Main layout-->
+    <script nonce="<%= nonce %>">
+      function carregarConteudo(pagina) {
+        fetch(`/conteudo/${pagina}`)
+          .then(response => response.text())
+          .then(html => {
+            document.getElementById('conteudo').innerHTML = html;
+
+            
+          });
+      }
+
+      document.getElementById('dashboardLink').addEventListener('click', function () {
+        carregarConteudo('conteudo1');
+      });
+
+      
+
+      // Adicione mais eventos conforme necessário
+    </script>
+
+    <%- include('includes/footer'); %>
