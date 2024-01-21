@@ -18,7 +18,7 @@ exports.register = async function (req, res) {
     }
     req.flash("success", 'Usuario Criado com sucesso.'); // Se o registro for bem-sucedido, armazena uma mensagem de sucesso em um flash message.
     req.session.save(function () {
-      return res.redirect("/registrar"); // Redireciona de volta para a página de registro.
+      return res.redirect("/login"); // Redireciona de volta para a página de registro.
     });
   } catch (e) {
     console.log(e); // Se ocorrer um erro durante o processo, imprime o erro no console.

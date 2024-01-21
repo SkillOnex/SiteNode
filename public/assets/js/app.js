@@ -1,3 +1,4 @@
+
 // Função para criar ou atualizar o gráfico
 function criarOuAtualizarGrafico() {
   const canvas = document.getElementById("meuGrafico");
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Chame a função para criar o gráfico após um pequeno atraso
         setTimeout(criarOuAtualizarGrafico, 100);
-
+        
         // Salvar a página atual no localStorage
         localStorage.setItem("paginaAtual", pagina);
 

@@ -1,5 +1,5 @@
 <%- include('includes/head'); %>
-  <%- include('includes/nav'); %>
+
     <!-- Section: Design Block -->
     <section class="text-center text-lg-start">
       <style>
@@ -31,16 +31,22 @@
                   <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                   <!-- 2 column grid layout with text inputs for the first and last names -->
                   
+                  <!-- Setor input -->
+                  <div class="form-outline mb-4" data-mdb-input-init>
+                    <input type="text" class="form-control " name="setor" />
+                    <label class="form-label " for="form3Example3">Setor</label>
+                  </div>
+
                   <!-- Email input -->
-                  <div class="form-outline mb-4">
-                    <input type="email" class="form-control" name="email" />
-                    <label class="form-label" for="form3Example3">Endereço de Email</label>
+                  <div class="form-outline mb-4" data-mdb-input-init>
+                    <input type="email" class="form-control " name="email" />
+                    <label class="form-label " for="form3Example3">Endereço de Email</label>
                   </div>
 
                   <!-- Password input -->
-                  <div class="form-outline mb-4">
-                    <input type="password" id="form3Example4" class="form-control" name="senha"/>
-                    <label class="form-label" for="form3Example4">Senha</label>
+                  <div class="form-outline mb-4" data-mdb-input-init>
+                    <input type="password" id="form3Example4" class="form-control " name="senha"/>
+                    <label class="form-label " for="form3Example4">Senha</label>
                   </div>
 
 

@@ -1,4 +1,4 @@
-<section >
+<section>
     <div class="container my-5 py-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8 shadow-4-strong">
@@ -11,44 +11,47 @@
                         </p>
                         <hr>
                         <div class="row">
-                            <div class="col-lg-12">
-                                <p>Selecione para onde seu chamado vai.</p>
-                                <select class="form-select " aria-label=".form-select-sm example">
+                            <form action="/sendchamado" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-                                    <option selected>Selecione o setor</option>
-                                    <option value="1">T.I</option>
-                                    <option value="2">Financeiro</option>
-                                    <option value="3">Recursos Humanos</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-12">
-                                <p class="mt-4">Deixe aqui sua mensagem.</p>
+                                <input type="hidden" name="user" value="<%= user.email %>">
+                                <div class="col-lg-12">
+                                    <p>Selecione para onde seu chamado vai.</p>
+                                    
+                                    <select name="setorname" class="form-select " aria-label=".form-select-sm example">
 
-
-                                <div data-mdb-input-init class="form-outline mb-4 border">
-                                    <textarea class="form-control active" placeholder="Sua Mensagem" id="form4Example3"
-                                        rows="4"></textarea>
-
+                                        <option selected>Selecione o setor</option>
+                                        <% setor.forEach(setor => { %>
+                                            <option value="<%= setor %>"><%= setor %></option>
+                                          <% }); %>
+                                    </select>
                                 </div>
+                                <div class="col-lg-12">
+                                    <p class="mt-4">Deixe aqui sua mensagem.</p>
 
 
-                                <div class="float-end mt-2 pt-1">
-                                    <button type="button" class="btn btn-primary ">
-                                        <i class="fas fa-paper-plane"></i> Enviar Chamado
-                                    </button>
+                                    <div data-mdb-input-init class="form-outline mb-4 border">
+                                        <textarea name="message" class="form-control active" placeholder="Sua Mensagem"
+                                            id="form4Example3" rows="4"></textarea>
 
-                                    <button type="button" class="btn btn-outline-primary ">
-                                        Cancelar
-                                    </button>
-                                </div>
+                                    </div>
+                                    
 
+                                    <div class="float-end mt-2 pt-1">
+                                        <button type="submit" class="btn btn-primary ">
+                                            <i class="fas fa-paper-plane"></i> Enviar Chamado
+                                        </button>
 
+                                        
+                                    </div>
+                            </form>
 
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>

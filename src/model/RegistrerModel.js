@@ -4,7 +4,8 @@ const bcryptjs = require('bcryptjs'); // Importa a biblioteca Bcrypt.js, que ser
 
 const RegisterSchema = new mongoose.Schema({ // Cria um esquema (Schema) para a coleção 'Register' no MongoDB.
     email  : {type:String , required: true}, // Define um campo 'email' do tipo String e obrigatório.
-    password : {type:String , required: true}  // Define um campo 'password' do tipo String e obrigatório.
+    password : {type:String , required: true},  // Define um campo 'password' do tipo String e obrigatório.
+    setor : {type:String , required: true}
 });
 
 const RegisterModel = mongoose.model('Register', RegisterSchema); // Cria um modelo (Model) chamado 'RegisterModel' para a coleção 'Register' usando o esquema 'RegisterSchema'.
@@ -57,7 +58,8 @@ class Registrar {
 
         this.body = {
             email : this.body.email,
-            password : this.body.senha // Corrige o nome do campo 'senha' para 'password'.
+            password : this.body.senha, // Corrige o nome do campo 'senha' para 'password'.
+            setor : this.body.setor
         };
     }
 }

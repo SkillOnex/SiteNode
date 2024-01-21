@@ -3,8 +3,11 @@ const Logar = require("../model/LoginModel");
 
 // Controlador para renderizar a view de login.
 exports.index = (req, res) => {
-  if(req.session.user) return res.render('index');
-  res.render("login"); // Renderiza a view "login" ao acessar a rota correspondente.
+  if (req.session.user){
+    res.render("index");
+  }else{
+    res.render("login");
+  }// Renderiza a view "login" ao acessar a rota correspondente.
 };
 
 // Controlador para processar a tentativa de login.
@@ -12,7 +15,7 @@ exports.entrar = async function (req, res) {
   try {
     // Cria uma instância da classe 'Logar' com os dados recebidos no corpo da requisição.
     const login = new Logar(req.body);
-    
+
     // Chama o método 'login' assíncrono da instância 'Logar'.
     await login.login();
 
@@ -39,7 +42,7 @@ exports.entrar = async function (req, res) {
   }
 };
 
-exports.logout = function(req,res){
+exports.logout = function (req, res) {
   req.session.destroy();
-  res.redirect('/login');
-}
+  res.redirect("/login");
+};

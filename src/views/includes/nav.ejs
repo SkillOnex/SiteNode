@@ -1,85 +1,91 @@
-
 <!-- Navbar -->
-<nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-        <a href="/"><img class="ps-2" src="assets/image/BetterLogo.png" height="60" /></a>
-        
+<nav
+  id="main-navbar"
+  class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+>
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <a href="/"
+      ><img class="ps-2" src="assets/image/BetterLogo.png" height="60"
+    /></a>
 
-        <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-        </button>
+    <button
+      data-mdb-collapse-init
+      class="navbar-toggler"
+      type="button"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
 
-        <!-- Brand -->
+    <!-- Brand -->
 
-
-
-        <!-- Right links -->
-        <ul class="navbar-nav ms-auto d-flex flex-row">
-            <!-- Notification dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Some news</a></li>
-                    <li><a class="dropdown-item" href="#">Another news</a></li>
-                    <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Icon -->
-            <li class="nav-item">
-                <a class="nav-link me-3 me-lg-0" href="#">
-                    <i class="fas fa-fill-drip"></i>
-                </a>
-            </li>
-            <!-- Icon -->
-            <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
-
-
-
-
-        </ul>
+    <div class="d-flex align-items-center">
+        <% if (user) { %>
+      <button data-mdb-ripple-init type="button" class="btn px-3 me-2">
+        <%= user.email %>
+      </button>
+      <a href="/logout"><button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
+        Sair
+      </button></a>
+      
+      <% } else { %>
+        <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
+            Entrar
+          </button>
+          <% } %>
     </div>
-    <!-- Container wrapper -->
+
+    
+  </div>
+  <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
 
-
 <!--Main Navigation-->
 <header class="">
-    <!-- Sidebar -->
-    <nav id="navbarSupportedContent" class="collapse navbar-collapse d-lg-block sidebar  bg-white">
-      <div class="position-sticky my-5">
-        <div class="list-group list-group-flush mx-3 mt-4">
-          <a href="#" id="dashboardLink" class="list-group-item list-group-item-action py-2 ripple"
-            aria-current="true" nonce="<%= nonce %>">
-            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
-          </a>
-          <a href="#" id="novochamadoLink" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-circle-plus fa-fw me-3"></i><span>Inciar Chamado</span>
-          </a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-folder-open fa-fw me-3"></i><span>Meus Chamados</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-              class="fas fa-users fa-fw me-3"></i><span>Meu Setor</span></a>
-          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
-            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Graficos</span>
-          </a>
-        </div>
+  <!-- Sidebar -->
+  <nav
+    id="navbarSupportedContent"
+    class="collapse navbar-collapse d-lg-block sidebar bg-white"
+  >
+    <div class="position-sticky my-5">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a
+          href="#"
+          id="dashboardLink"
+          class="list-group-item list-group-item-action py-2 ripple"
+          aria-current="true"
+          nonce="<%= nonce %>"
+        >
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+        </a>
+        <a
+          href="#"
+          id="novochamadoLink"
+          class="list-group-item list-group-item-action py-2 ripple"
+        >
+          <i class="fas fa-circle-plus fa-fw me-3"></i
+          ><span>Inciar Chamado</span>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-folder-open fa-fw me-3"></i
+          ><span>Meus Chamados</span></a
+        >
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-users fa-fw me-3"></i><span>Meu Setor</span></a
+        >
+        <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-pie fa-fw me-3"></i><span>Graficos</span>
+        </a>
       </div>
-
-    </nav>
-    <!-- Sidebar -->
-  </header>
-  <!--Main Navigation-->
+      <%- include('messages'); %>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+  
+</header>
+<!--Main Navigation-->
