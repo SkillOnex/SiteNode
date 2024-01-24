@@ -12,13 +12,13 @@ exports.register = async function (req, res) {
     if (userreg.erros.length > 0) {
       req.flash("erros", userreg.erros); // Se houver erros durante o registro, armazena os erros em um flash message.
       req.session.save(function () {
-        return res.redirect("/registrar"); // Redireciona de volta para a página de registro.
+        return res.redirect("/registrar.setor.admin"); // Redireciona de volta para a página de registro.
       });
       return;
     }
-    req.flash("success", 'Usuario Criado com sucesso.'); // Se o registro for bem-sucedido, armazena uma mensagem de sucesso em um flash message.
+    req.flash("success", 'Setor Adicionado com Sucesso.'); // Se o registro for bem-sucedido, armazena uma mensagem de sucesso em um flash message.
     req.session.save(function () {
-      return res.redirect("/login"); // Redireciona de volta para a página de registro.
+      return res.redirect("/registrar.setor.admin"); // Redireciona de volta para a página de registro.
     });
   } catch (e) {
     console.log(e); // Se ocorrer um erro durante o processo, imprime o erro no console.

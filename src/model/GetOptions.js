@@ -14,6 +14,8 @@ class AgendaModel {
     client.close();
     return result;
   }
+
+
 }
 
 module.exports = AgendaModel;

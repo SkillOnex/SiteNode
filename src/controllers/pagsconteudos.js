@@ -24,13 +24,15 @@ class AgendaController {
 exports.index = async (req, res, next) => {
   const agendaController = new AgendaController(); // Crie uma instância do controlador
   const setores = await agendaController.getOptions(); // Obtenha os setores
+
+
   const pagina = req.params.pagina;
   console.log(setores)
   if (pagina == "dashboard") {
     res.render("dashboard", { content: obterConteudo(pagina) });
     next();
   } else if (pagina == "novochamado") {
-    res.render("novochamado", { content: obterConteudo(pagina), setor: setores });
+    res.render("novochamado", { content: obterConteudo(pagina), setor: setores  });
     next();
   }
 };
