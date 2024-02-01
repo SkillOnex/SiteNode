@@ -1,6 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 class AgendaModel {
+  
   constructor(url, dbName) {
     this.url = url;
     this.dbName = dbName;

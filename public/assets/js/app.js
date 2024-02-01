@@ -66,33 +66,41 @@ function criarOuAtualizarGrafico() {
         options: options,
       });
     } else {
-      console.error("");
+      
     }
   } else {
-    console.warn("");
+    
   }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
   // Função para carregar conteúdo
-  function carregarConteudo(pagina) {
-    fetch(`/conteudo/${pagina}`)
-      .then((response) => response.text())
-      .then((html) => {
-        document.getElementById("conteudo").innerHTML = html;
+  // function carregarConteudo(pagina) {
+  //   fetch(`/conteudo/${pagina}`)
+  //     .then((response) => response.text())
+  //     .then((html) => {
+  //       document.getElementById("conteudo").innerHTML = html;
 
-        // Chame a função para criar o gráfico após um pequeno atraso
-        setTimeout(criarOuAtualizarGrafico, 100);
         
-        // Salvar a página atual no localStorage
-        localStorage.setItem("paginaAtual", pagina);
 
-        // Modificar a URL sem adicionar um fragmento
-        history.pushState({}, "", `/`);
-      });
+  //       // Salvar a página atual no localStorage
+  //       localStorage.setItem("paginaAtual", pagina);
 
-      
-  }
+  //       // Modificar a URL sem adicionar um fragmento
+  //       history.pushState({}, "", `/`);
+  //     });
+  // }
+
+  // Chame a função para criar o gráfico após um pequeno atraso
+  setTimeout(criarOuAtualizarGrafico, 100);
+
+  // Adicionar eventos de clique
+  document
+    .getElementById("dashboardLink")
+    .addEventListener("click", function() {
+      carregarConteudo("dashboard");
+    });
+
 
   // Adicionar eventos de clique
   document
@@ -107,6 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
       carregarConteudo("novochamado");
     });
 
+  document.getElementById("editgroup").addEventListener("click", function () {
+    
+    carregarConteudo("editgrupos");
+  });
+
   // Chamar a função para criar ou atualizar o gráfico ao carregar a página
   criarOuAtualizarGrafico();
 
@@ -115,6 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (paginaSalva) {
     carregarConteudo(paginaSalva);
   }
+
+  
 });
-
-

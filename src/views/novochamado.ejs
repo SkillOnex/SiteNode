@@ -1,57 +1,66 @@
-<section>
-    <div class="container my-5 py-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-12 col-lg-10 col-xl-8 shadow-4-strong">
-                <div class="card ">
-                    <div class="card-body">
+<%- include('includes/head'); %><%- include('includes/nav'); %>
 
-                        <h1 class="mt-3 mb-4 pb-2 text-center">Novo Chamado</h1>
-                        <p class="text-center lead">
-                            Descreva com detalhes para que fim você está abrindo Chamado
-                        </p>
-                        <hr>
-                        <div class="row">
-                            <form action="/sendchamado" method="post">
-                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+<main style="margin-top: 6em">
+    <div class="container pt-4">
+        <div class="container my-5 py-5">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8 shadow-4-strong">
+                    <div class="card ">
+                        <div class="card-body">
 
-                                <input type="hidden" name="user" value="<%= user.email %>">
-                                <div class="col-lg-12">
-                                    <p>Selecione para onde seu chamado vai.</p>
-                                    
-                                    <select name="setorname" class="form-select " aria-label=".form-select-sm example">
+                            <h1 class="mt-3 mb-4 pb-2 text-center">Novo Chamado</h1>
+                            <p class="text-center lead">
+                                Descreva com detalhes para que fim você está abrindo Chamado
+                            </p>
+                            <hr>
+                            <div class="row">
+                                <form action="/sendchamado" method="post">
+                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-                                        <option selected>Selecione o setor</option>
-                                        <% setor.forEach(setor => { %>
-                                            <option value="<%= setor %>"><%= setor %></option>
-                                          <% }); %>
-                                    </select>
-                                </div>
-                                <div class="col-lg-12">
-                                    <p class="mt-4">Deixe aqui sua mensagem.</p>
+                                    <input type="hidden" name="user" value="<%= user.email %>">
+                                    <div class="col-lg-12">
+                                        <p>Selecione para onde seu chamado vai.</p>
 
+                                        <select name="setorname" class="form-select "
+                                            aria-label=".form-select-sm example">
 
-                                    <div data-mdb-input-init class="form-outline mb-4 border">
-                                        <textarea name="message" class="form-control active" placeholder="Sua Mensagem"
-                                            id="form4Example3" rows="4"></textarea>
-
+                                            <option selected>Selecione o setor</option>
+                                            <% setor.forEach(setor=> { %>
+                                                <option value="<%= setor %>">
+                                                    <%= setor %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
                                     </div>
-                                    
+                                    <div class="col-lg-12">
+                                        <p class="mt-4">Deixe aqui sua mensagem.</p>
 
-                                    <div class="float-end mt-2 pt-1">
-                                        <button type="submit" class="btn btn-primary ">
-                                            <i class="fas fa-paper-plane"></i> Enviar Chamado
-                                        </button>
 
-                                        
-                                    </div>
-                            </form>
+                                        <div data-mdb-input-init class="form-outline mb-4 border">
+                                            <textarea name="message" class="form-control active"
+                                                placeholder="Sua Mensagem" id="form4Example3" rows="4"></textarea>
 
-                            
+                                        </div>
+
+
+                                        <div class="float-end mt-2 pt-1">
+                                            <button type="submit" class="btn btn-primary ">
+                                                <i class="fas fa-paper-plane"></i> Enviar Chamado
+                                            </button>
+
+
+                                        </div>
+                                </form>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-</section>
+</main>
+
+
+<%- include('includes/footer'); %>

@@ -10,7 +10,7 @@
 // Controlador para renderizar a view de login.
 exports.index = (req, res) => {
   if (req.session.user) {
-    res.render("index");
+    res.render("index" , {setorgrupo : res.locals.setores});
   } else {
     res.render("login");
   } // Renderiza a view "login" ao acessar a rota correspondente.
